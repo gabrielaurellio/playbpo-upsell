@@ -523,21 +523,20 @@
       <div class="vsl-wrapper" id="vsl-container">
 
         <!--
-          SUBSTITUIR pelo embed do Vturb ou Panda Video quando tiver o vídeo gravado.
-          O placeholder abaixo é apenas visual para aprovação da página.
+          VÍDEO ILUSTRATIVO — Será substituído pelo VSL gravado (Vturb ou Panda Video).
 
-          Vturb: cole o bloco <div id="vid_SEU_ID"> gerado na plataforma aqui dentro,
-          dentro de uma div com position:absolute;inset:0
-
-          Panda Video: cole o <iframe> com allow="autoplay" e muted aqui dentro,
+          Para trocar: remova o <iframe> abaixo e cole o embed do Vturb/Panda aqui,
           dentro de uma div com position:absolute;inset:0;width:100%;height:100%
         -->
-        <div class="vsl-placeholder" id="vsl-placeholder">
-          <div class="vsl-play-btn" id="play-btn" role="button" tabindex="0" aria-label="Reproduzir vídeo">
-            <div class="vsl-play-icon" aria-hidden="true"></div>
-          </div>
-          <p class="vsl-label">Assista ao vídeo completo</p>
-          <p class="vsl-note">[ Área do player — inserir embed Vturb ou Panda Video ]</p>
+        <div style="position:absolute;inset:0;">
+          <iframe
+            src="https://www.youtube.com/embed/B8VjlGxGcN8?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&color=white"
+            style="width:100%;height:100%;border:0;display:block;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="Venda BPO Financeiro — PlayBPO (vídeo ilustrativo)"
+            loading="lazy"
+          ></iframe>
         </div>
 
       </div>
@@ -650,22 +649,6 @@
           event_label: 'decline_mentoria_vendas'
         });
       }
-    }
-
-    /* ── Placeholder play btn (remover quando inserir player real) ── */
-    var playBtn = document.getElementById('play-btn');
-    if (playBtn) {
-      function activatePlaceholder() {
-        var ph = document.getElementById('vsl-placeholder');
-        if (!ph) return;
-        ph.querySelector('.vsl-play-btn').style.opacity = '0.4';
-        ph.querySelector('.vsl-label').textContent = '▶ Simulando reprodução...';
-        ph.querySelector('.vsl-note').textContent = 'Insira o embed do player aqui para ativá-lo.';
-      }
-      playBtn.addEventListener('click', activatePlaceholder);
-      playBtn.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activatePlaceholder(); }
-      });
     }
 
     /* ── Hooks para player real (descomente quando inserir o embed) ──
